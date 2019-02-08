@@ -1,0 +1,37 @@
+<div class="mainbtn">
+  <button type="submit" class="btn btn-primary" (click)="Home()">Home</button>&nbsp;&nbsp;
+  <button type="submit" class="btn btn-primary" (click)="addemployee()">Add Employees</button>
+</div>
+
+<div class="container">
+  <h4>PROJECT EMPLOYEE LIST</h4><br>
+  <div class="row">
+     <div class="col-8"><input class="form-control" name="searchInput" placeholder="Search Employee" #searchInput="ngModel" [(ngModel)]="searchText"></div> 
+     <div class="col-2"><button class="btn btn-primary" (click)="searchText=''">Clear</button></div> 
+  </div><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>first name</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+       <ng-container *ngFor="let Employee of EmployeeInfo">
+          <tr *ngIf="filterCondition(Employee)">
+        <td>{{Employee.First}}</td>
+        <td>{{Employee.Last}}</td>
+        <td>{{Employee.Email}}</td>
+        <input type="button" class="btn btn-primary" id="btn_del" value="delete" (click)="removeInfo(Employee)" />
+        <input type="button" class="btn btn-primary" id="btn_upd" value="update" (click)="updateInfo(Employee)" />
+      </tr>
+      </ng-container>
+    </tbody>
+    <div class="alert alert-danger" *ngIf="showDeletedMessage">
+        Deleted successfully.
+      </div>
+  </table>
+</div>

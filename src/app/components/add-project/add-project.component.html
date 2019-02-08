@@ -1,0 +1,27 @@
+<div class="mainbtn">
+    <button type="submit" class="btn btn-primary" (click)="Back()">Back</button>&nbsp;&nbsp;
+</div>
+
+<form class="container" #myForm="ngForm" >
+<div class="form-group">
+  <label for="name">Project Name</label>
+  <input [(ngModel)]="Project1" #Project="ngModel" name="Project" required [class.is-invalid] = "Project.invalid && Project.touched"   type="text" class="form-control" id="name" placeholder="Enter Project Name" ngModel  >
+  <small [class.d-none]="Project.valid || Project.untouched" class="text-danger">Email ID required</small>
+
+</div>
+<div class="form-group">
+  <label for="leader">Project leader</label>
+  <input [(ngModel)]="leader" #leader1="ngModel" name="leader1" required [class.is-invalid] = "leader1.invalid && leader1.touched" type="text" class="form-control" id="leader" placeholder="Enter Project leader Name" ngModel>
+  <small [class.d-none]="leader1.valid || leader1.untouched" class="text-danger">Email ID required</small>
+</div>
+<div class="form-group">
+    <label for="Description">Description</label>
+    <textarea [(ngModel)]="Description" name="Description" class="form-control" rows="5" id="Description"></textarea>
+  </div>
+  <div>
+      <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary" (click)="subProject()">submit</button>
+  </div>
+  
+</form>
+
+

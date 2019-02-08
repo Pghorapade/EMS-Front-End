@@ -1,0 +1,26 @@
+<div class="mainbtn">
+    <button type="submit" class="btn btn-primary" (click)="Back()">Back</button>&nbsp;&nbsp;
+</div>
+<form class="container" [formGroup]="Form">
+  <div class="form-group">
+    <label for="name">First Name</label>
+    <input  [(ngModel)]="First" formControlName="First"  [class.is-invalid]="Form.get('First').invalid && Form.get('First').touched"  name="First" type="text" class="form-control" id="First" placeholder="Enter First Name"  >
+    <small [class.d-none]="Form.get('First').valid || Form.get('First').untouched" class="text-danger">First name is required......</small>
+
+  </div>
+    <div class="form-group">
+    <label for="leader">Last Name</label>
+    <input [(ngModel)]="Last" formControlName="Last" [class.is-invalid]="Form.get('Last').invalid && Form.get('Last').touched"  name="Last" type="text" class="form-control" id="Last" placeholder="Enter Last Name"  >
+    <small [class.d-none]="Form.get('Last').valid || Form.get('Last').untouched" class="text-danger">Last name is required......</small>
+  </div>
+  <div class="form-group">
+    <label for="leader">Email</label>
+    <input [(ngModel)]="Email" formControlName="email" [class.is-invalid]="Form.get('email').invalid && Form.get('email').touched" name="Email" type="text" class="form-control" id="Email" placeholder="Enter Email Address" >
+    <small [class.d-none]="Form.get('email').valid || Form.get('email').untouched" class="text-danger">Email is required......</small>
+  </div>
+  
+    <div>
+        <button type="button" [disabled]="Form.invalid" class="btn btn-primary" (click)="subEmployee()">submit</button>
+    </div>
+    
+  </form>
